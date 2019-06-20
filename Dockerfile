@@ -16,12 +16,15 @@ ENV HOME=/root \
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
+      build-essential \
       game-data-packager \
+      innoextract \
+      libc6-dev \
       quake2-server
 
 # Set up config directory
-RUN mkdir /app
-COPY config /app/
+RUN mkdir -p /app/config
+COPY ./config/* /app/config/
 
 # Load up scripts
 COPY scripts/* /usr/local/bin/
