@@ -9,4 +9,4 @@ if [ "$GAME" != 'ctf' ] && [ "$GAME" != 'dm64' ] && [ "$GAME" != 'mp1' ] && [ "$
 fi
 
 # Launch
-quake2-server +exec /app/config/server.cfg +exec /app/config/$GAME.cfg $@
+/usr/games/quake2-server +exec /app/config/server.cfg +exec /app/config/$GAME.cfg $@
