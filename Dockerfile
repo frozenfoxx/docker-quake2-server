@@ -30,6 +30,7 @@ COPY scripts/* /usr/local/bin/
 RUN mkdir -p /app/config && \
   chmod -R 775 /app
 COPY ./config/* /app/config/
+RUN chown -R quake2-server /app
 
 # Copy over game data
 COPY ./data/ /data/
