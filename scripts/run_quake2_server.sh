@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
 # Variables
+## Game Variables
 GAME=${GAME:-''}
+
+## Daemon Variables
+CHUID='quake2-server'
+EXEC='/usr/lib/quake2/quake2-engine-server'
+PIDFILE='/var/run/quake2-server.pid'
+STARTAS='/usr/games/quake2-server'
 
 ## Set game-specific variable defaults
 if [[ ${GAME} == 'dm' ]]; then
@@ -31,4 +38,4 @@ usage()
 }
 
 # Launch
-/usr/games/quake2-server +exec /app/config/server.cfg +exec /app/config/${GAME}.cfg $@
+start-stop-daemon --start --pidfile ${PIDFILE} --exec ${EXEC} --startas ${STARTAS} --make-pidfile --chuid ${CHUID} -- +exec /app/config/server.cfg +exec /app/config/${GAME}.cfg $@
