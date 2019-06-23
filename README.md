@@ -23,6 +23,10 @@ docker run -it \
   --rm \
   -p 27910:27910 \
   -p 27910:27910/udp \
+  -e GAME='dm' \
   --name=quake2-server \
   $(whoami)/quake2-server:latest
 ```
+
+# Environment Variables
+* `GAME`: set the gametype (default: `dm`)

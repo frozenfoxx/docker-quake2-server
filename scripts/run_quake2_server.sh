@@ -11,17 +11,7 @@ PIDFILE='/var/run/quake2-server.pid'
 STARTAS='/usr/games/quake2-server'
 
 ## Set game-specific variable defaults
-if [[ ${GAME} == 'dm' ]]; then
-  ALLOW_DOWNLOAD=1
-elif [[ ${GAME} == 'dm64' ]]; then
-  ALLOW_DOWNLOAD=1
-elif [[ ${GAME} == 'ctf' ]]; then
-  ALLOW_DOWNLOAD=1
-elif [[ ${GAME} == 'mp1' ]]; then
-  ALLOW_DOWNLOAD=1
-elif [[ ${GAME} == 'mp2' ]]; then
-  ALLOW_DOWNLOAD=1
-else
+if [[ -z ${GAME} ]]; then
   echo "No game type selected, set with GAME!"
   exit 1
 fi
