@@ -37,8 +37,7 @@ RUN apt-get autoremove -y && \
       rm -rf /var/lib/apt/lists/*
 
 # Add user
-RUN useradd -m -s /bin/bash quake2
-USER quake2
+RUN useradd -m -s /bin/bash quake2-server
 
 # Expose ports
 EXPOSE 27910
