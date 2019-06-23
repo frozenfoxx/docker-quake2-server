@@ -10,7 +10,8 @@ maintainer.website="http://churchoffoxx.net/"
 ENV HOME=/root \
     APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn \
     DEBIAN_FRONTEND=noninteractive \
-    DATADIR='/data'
+    DATADIR='/data' \
+    USER='quake2-server'
 
 # Install Updates + Quake2 Server
 RUN apt-get update && \
@@ -32,9 +33,6 @@ COPY scripts/* /usr/local/bin/
 # Clean up unnecessary packages
 RUN apt-get autoremove -y && \
       rm -rf /var/lib/apt/lists/*
-
-# Add user
-RUN useradd -m -s /bin/bash quake2-server
 
 # Expose ports
 EXPOSE 27910
