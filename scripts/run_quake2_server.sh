@@ -23,7 +23,6 @@ elif [[ ${GAME} == 'mp2' ]]; then
   ALLOW_DOWNLOAD=1
 else
   echo "No game type selected, set with GAME!"
-  usage
   exit 1
 fi
 
