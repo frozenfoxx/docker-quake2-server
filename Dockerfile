@@ -26,11 +26,9 @@ RUN apt-get update && \
 # Load up scripts
 COPY scripts/* /usr/local/bin/
 
-# Set up config directory
-RUN mkdir -p /app/config && \
-  chmod -R 775 /app
-COPY ./config/* /app/config/
-RUN chown -R quake2-server /app
+# Copy in default gametype configs
+COPY ./config/* /etc/quake2-server/
+RUN /usr/local/bin/configure_quake2_server.sh
 
 # Copy over game data
 COPY ./data/ /data/

@@ -37,4 +37,4 @@ usage()
 }
 
 # Launch
-start-stop-daemon --start --pidfile ${PIDFILE} --exec ${EXEC} --startas ${STARTAS} --make-pidfile --chuid ${CHUID} -- +exec /app/config/server.cfg +exec /app/config/${GAME}.cfg $@
+start-stop-daemon --start --pidfile ${PIDFILE} --exec ${EXEC} --startas ${STARTAS} --make-pidfile --chuid ${CHUID} -- +set dedicated 1 +set game ${GAME} +exec server.cfg +exec ${GAME}.cfg $@
