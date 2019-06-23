@@ -1,11 +1,20 @@
 # docker-quake2-server
 
-A containerized Quake II server.
+A containerized [Quake II](https://www.gog.com/game/quake_ii_quad_damage) server.
 
 # Requirements
-* Full copy of Quake II
+* Full copy of [Quake II](https://www.gog.com/game/quake_ii_quad_damage).
 
 # Operation
+
+## Build
+
+Because of how Quake II is licensed you will have to build this container prior to deployment. Do so with the following steps, all deployment assumes a locally-built container.
+
+* Install Quake II to an accessible location (for example, `/home/user/Quake II`).
+
+## Run
+
 * Mount Quake II installation to `/data` in the container.
 ```
 docker run -it \

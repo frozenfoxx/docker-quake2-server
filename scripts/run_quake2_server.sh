@@ -4,15 +4,15 @@
 GAME=${GAME:-''}
 
 ## Set game-specific variable defaults
-if [ ${GAME} == 'dm' ]; then
+if [[ ${GAME} == 'dm' ]]; then
   ALLOW_DOWNLOAD=1
-elif [ ${GAME} == 'dm64' ]; then
+elif [[ ${GAME} == 'dm64' ]]; then
   ALLOW_DOWNLOAD=1
-elif [ ${GAME} == 'ctf' ]; then
+elif [[ ${GAME} == 'ctf' ]]; then
   ALLOW_DOWNLOAD=1
-elif [ ${GAME} == 'mp1' ]; then
+elif [[ ${GAME} == 'mp1' ]]; then
   ALLOW_DOWNLOAD=1
-elif [ ${GAME} == 'mp2' ]; then
+elif [[ ${GAME} == 'mp2' ]]; then
   ALLOW_DOWNLOAD=1
 else
   echo "No game type selected, set with GAME!"
