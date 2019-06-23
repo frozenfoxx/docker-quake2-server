@@ -23,12 +23,18 @@ RUN apt-get update && \
       libc6-dev \
       quake2-server
 
+# Load up scripts
+COPY scripts/* /usr/local/bin/
+
 # Set up config directory
 RUN mkdir -p /app/config
 COPY ./config/* /app/config/
 
-# Load up scripts
-COPY scripts/* /usr/local/bin/
+# Copy over game data
+COPY ./data/* /data/
+
+# Install game data packages
+RUN /usr/local/bin/install_quake2_data.sh
 
 # Clean up unnecessary packages
 RUN apt-get autoremove -y && \

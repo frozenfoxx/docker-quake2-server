@@ -11,17 +11,18 @@ A containerized [Quake II](https://www.gog.com/game/quake_ii_quad_damage) server
 
 Because of how Quake II is licensed you will have to build this container prior to deployment. Do so with the following steps, all deployment assumes a locally-built container.
 
-* Install Quake II to an accessible location (for example, `/home/user/Quake II`).
+* Install Quake II to an accessible location (for example, `/home/$(whoami)/Quake II`).
+* Copy or symlink all contents of that directory to `/data`.
+  * `cp -r /home/$(whoami)/Quake\ II/* ./data/`
+* Build the container (`docker build . -t $(whoami)/quake2-server:latest`)
 
 ## Run
 
-* Mount Quake II installation to `/data` in the container.
 ```
 docker run -it \
   --rm \
   -p 27910:27910 \
   -p 27910:27910/udp \
-  -v /Path/To/Quake II/:/data \
   --name=quake2-server \
-  frozenfoxx/quake2-server:latest
+  $(whoami)/quake2-server:latest
 ```
