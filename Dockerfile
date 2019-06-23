@@ -29,9 +29,6 @@ COPY ./config/* /app/config/
 # Load up scripts
 COPY scripts/* /usr/local/bin/
 
-# Build and install game data
-RUN /usr/local/bin/install_quake2_data.sh
-
 # Clean up unnecessary packages
 RUN apt-get autoremove -y && \
       rm -rf /var/lib/apt/lists/*
