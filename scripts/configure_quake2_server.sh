@@ -18,7 +18,7 @@ link_configs()
   done
 
   # Check all config files for ctf
-  if [[ ${SERVERDIR}/ctf ]]; then
+  if [[ -d ${SERVERDIR}/ctf ]]; then
     if [[ -f ${SERVERDIR}/ctf/server.cfg ]]; then
       rm ${SERVERDIR}/ctf/server.cfg
     fi

@@ -26,22 +26,20 @@ RUN apt-get update && \
 # Load up scripts
 COPY scripts/* /usr/local/bin/
 
-# Copy in default gametype configs
-COPY ./config/* /etc/quake2-server/
-RUN /usr/local/bin/configure_quake2_server.sh
-
 # Copy over game data
 COPY ./data/ /data/
 
 # Install game data packages
-RUN /usr/local/bin/install_quake2_data.sh
+RUN /usr/local/bin/install_quake2_data.sh && \
+  rm -rf /data/*
 
 # Clean up unnecessary packages
 RUN apt-get autoremove -y && \
       rm -rf /var/lib/apt/lists/*
 
-# Clean up data directory
-RUN rm -rf /data/*
+# Copy in gametype configs
+COPY ./config/* /etc/quake2-server/
+RUN /usr/local/bin/configure_quake2_server.sh
 
 # Expose ports
 EXPOSE 27910
