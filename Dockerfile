@@ -27,7 +27,8 @@ RUN apt-get update && \
 COPY scripts/* /usr/local/bin/
 
 # Set up config directory
-RUN mkdir -p /app/config
+RUN mkdir -p /app/config && \
+  chmod -R 775 /app
 COPY ./config/* /app/config/
 
 # Copy over game data
