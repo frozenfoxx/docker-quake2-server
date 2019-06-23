@@ -31,7 +31,7 @@ RUN mkdir -p /app/config
 COPY ./config/* /app/config/
 
 # Copy over game data
-COPY ./data/* /data/
+COPY ./data/ /data/
 
 # Install game data packages
 RUN /usr/local/bin/install_quake2_data.sh
