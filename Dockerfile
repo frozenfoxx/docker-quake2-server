@@ -40,6 +40,9 @@ RUN /usr/local/bin/install_quake2_data.sh
 RUN apt-get autoremove -y && \
       rm -rf /var/lib/apt/lists/*
 
+# Clean up data directory
+RUN rm -rf /data/*
+
 # Expose ports
 EXPOSE 27910
 EXPOSE 27910/udp
